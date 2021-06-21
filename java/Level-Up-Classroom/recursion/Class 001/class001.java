@@ -5,7 +5,7 @@ public class class001
 {
     public static void main(String[] args) 
     {
-        Scanner scn = new Scanner(System.in);
+        Scanner scn = new Scanner(System.in); 
         int a = scn.nextInt();
         int b = scn.nextInt();
 
@@ -34,38 +34,35 @@ public class class001
             arr[i] = i+10;
         }
         printarray(arr, 0);
-
+        System.out.println();
         System.out.println("PRINT ARRAY IN REVERSE");
         printarrayrev(arr, 0);
-
+        System.out.println();
         System.out.println("Maximum number in array is   " + arrmax(arr, 0));
         System.out.println("Minimum number in array is   " + arrmin(arr, 0));
         // find element in array 
-        int ansfind = arrfind(arr, 0, 30);
+        int ansfind = arrfind(arr, 0, 13);
         if(ansfind == -1)
             System.out.println("NUMBER NOT FOUND");
         else
             System.out.println("Index of target number in array is   " + ansfind);
 
         // First index of a target element in an array 
-        int ansfrst = arrfrst(arr, 0, 30);
+        int ansfrst = arrfrst(arr, 0, 13);
         if(ansfrst == -1)
             System.out.println("NUMBER NOT FOUND");
         else
             System.out.println(" First Index of target number in array is   " + ansfrst);
         // last index of a target element in an array 
-        int anslst = arrlst(arr, arr.length -1, 30);
+        int anslst = arrlst(arr, arr.length -1, 13);
         if(anslst == -1)
             System.out.println("NUMBER NOT FOUND");
         else
-            System.out.println(" First Index of target number in array is   " + anslst);
+            System.out.println(" Last Index of target number in array is   " + anslst);
 
         // All index of a  target element in array 
-        int allarr[] = findall(arr, 0, 40, 0 );
+        int allarr[] = findall(arr, 0, 13, 0 );
         printarray(allarr, 0);
-        
-
-
     }
 
     // fuNCTIONS 
@@ -146,7 +143,7 @@ public class class001
         // base case
         if(idx == arr.length) return;
         // recursive call
-        printarray(arr, idx +1);
+        printarrayrev(arr, idx +1);
         System.out.print(arr[idx] + ",  ");
     }
 
@@ -156,7 +153,7 @@ public class class001
         // base case 
         if (idx == arr.length) return (int) -1e9;
         // recursive call
-        int maxsf = arrmin(arr, idx +1);
+        int maxsf = arrmax(arr, idx +1);
         return  Math.max(maxsf, arr[idx]);
     }
 
@@ -197,7 +194,7 @@ public class class001
     public static int  arrlst(int arr[], int idx, int target)
     {
         // base case
-        if (idx == arr.length) return  -1;
+        if (idx == -1) return  -1;
 
         if(arr[idx] == target) return idx; 
 
@@ -212,23 +209,10 @@ public class class001
         if( idx == arr.length) return new int[fsf] ;
         
         // recursive call 
-        if(arr[idx] == target)
-        {
-           int ansarr[] =  findall(arr, idx + 1, target, fsf + 1 );
-           ansarr[fsf] = idx;
-           return ansarr;
-        }
-        else
-        {
-            int ansarr[] =  findall(arr, idx + 1, target, fsf);
-            return ansarr;
-        }
+        if(arr[idx] == target) fsf++ ;
 
-        
-        
-
-        
-        
-
+        int ansarr[] =  findall(arr, idx + 1, target, fsf);
+        if(arr[idx] == target) ansarr[fsf -1] = idx;
+        return ansarr;
     }
 }
