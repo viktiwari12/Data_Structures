@@ -8,9 +8,13 @@ public class mazepath
         Scanner scn = new Scanner(System.in);
         int row = scn.nextInt();
         int col = scn.nextInt();
+        // get stair path for single jump 
         ArrayList<String> mazpth = mazepath_HVD(0, 0, row -1, col - 1);
         System.out.println(mazpth);
+        // printstair path for single jump 
 
+        System.out.println("Now Print path");
+        mazepath(0, 0, row -1, col - 1, "");
     }
     // 
     public static ArrayList<String> mazepath_HVD(int sr, int sc, int er, int ec)
@@ -34,7 +38,7 @@ public class mazepath
         // vertical move
         ArrayList<String> vertical = mazepath_HVD(sr +1, sc, er, ec);
         // diagonal move
-        ArrayList<String> diagonal = mazepath_HVD(er+1, sr+1, er, ec);
+        ArrayList<String> diagonal = mazepath_HVD(sr+1, sc+1, er, ec);
         
         // An arraylist to store all the paths
         ArrayList<String> HVD_path = new ArrayList<>();
@@ -54,10 +58,19 @@ public class mazepath
             HVD_path.add("d" + i);
         }
         return HVD_path;
-
-
-
     }
-   // public static void mazepath()
+    public static void mazepath(int sr, int sc, int er, int ec, String path)
+    {
+        // base case 
+        if(sr == er && sc == ec) System.out.println(path);
+        // handeling out of box index
+        if(sr > er || sc > ec) return;
+        // horizontal jumps
+        mazepath(sr, sc+ 1, er, ec, path + "h");
+        // vertical jumps
+        mazepath(sr +1, sc, er, ec, path+ "v");
+        // diagonal jumps
+        mazepath(sr + 1, sc+ 1, er, ec, path + "d");
+    }
 
 }
