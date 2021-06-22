@@ -13,8 +13,11 @@ public class mazepath
         System.out.println(mazpth);
         // printstair path for single jump 
 
-        System.out.println("Now Print path");
+        System.out.println("Now Print path with single jump");
         mazepath(0, 0, row -1, col - 1, "");
+        System.out.println("Now get maze path with multiple jump");
+        ArrayList<String> mltipath = mazepath_muti(0, 0, row-1, col-1);
+        System.out.println(mltipath);
     }
     // 
     public static ArrayList<String> mazepath_HVD(int sr, int sc, int er, int ec)
@@ -43,20 +46,11 @@ public class mazepath
         // An arraylist to store all the paths
         ArrayList<String> HVD_path = new ArrayList<>();
         //  updating paths found from horizontal moves
-        for(String i : hori)
-        {
-            HVD_path.add("h" + i);
-        }
+        for(String i : hori) HVD_path.add("h" + i);
         //  updating paths found from vertical moves
-        for(String i : vertical)
-        {
-            HVD_path.add("v" + i);
-        }
+        for(String i : vertical) HVD_path.add("v" + i);
         //  updating paths found from diagonal moves
-        for(String i : diagonal)
-        {
-            HVD_path.add("d" + i);
-        }
+        for(String i : diagonal) HVD_path.add("d" + i);
         return HVD_path;
     }
     public static void mazepath(int sr, int sc, int er, int ec, String path)
@@ -72,5 +66,40 @@ public class mazepath
         // diagonal jumps
         mazepath(sr + 1, sc+ 1, er, ec, path + "d");
     }
+    // get maze path with multiple jumps 
+    public static ArrayList<String> mazepath_muti(int sr, int sc, int er, int ec)
+    {
+        // base case 
+        if( sr == er  && sc == ec )
+        {
+            ArrayList<String> base_path= new ArrayList<>();
+            base_path.add("");
+            return base_path;
+        }
+        // handling of of box index
+        else if(sr > er || sc > ec)
+        {
+            ArrayList<String> base_path= new ArrayList<>();
+            return base_path; 
+        }
+        // An arraylist to store all the paths
+        ArrayList<String> HVD_path = new ArrayList<>();
+
+        
+        for( int a = 1; a <=er && a<= ec ; a++){
+            // horizontal move
+            ArrayList<String> hori = mazepath_muti(sr, sc+ a, er, ec);
+            for(String i : hori) HVD_path.add((a+"h") + i); 
+            // vertical move
+            ArrayList<String> vertical = mazepath_muti(sr +a, sc, er, ec);
+            for(String i : vertical) HVD_path.add((a+"v" )+ i);
+            // diagonal move
+            ArrayList<String> diagonal = mazepath_muti(sr +a, sc +a, er, ec);
+            // updating all path and storing it into HVD arraylist
+            for(String i : diagonal) HVD_path.add((a+"d") + i);
+        }
+        return HVD_path;
+    }
+    
 
 }
