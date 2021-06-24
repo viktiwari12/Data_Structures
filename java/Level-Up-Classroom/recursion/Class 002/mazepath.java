@@ -42,7 +42,7 @@ public class mazepath
         ArrayList<String> hori = mazepath_HVD(sr, sc+ 1, er, ec);
         // vertical move
         ArrayList<String> vertical = mazepath_HVD(sr +1, sc, er, ec);
-        // diagonal move
+        // diagonal moved
         ArrayList<String> diagonal = mazepath_HVD(sr+1, sc+1, er, ec);
         
         // An arraylist to store all the paths
