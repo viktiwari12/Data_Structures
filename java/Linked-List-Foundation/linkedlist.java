@@ -84,5 +84,16 @@ public class linkedlist
         System.out.println("Updated linkedlist");  
         print_linkedlist(head);
     }
+    // size of linkedlsit 
+    public static int size(node head){
+        if(head == null) return 0;
+        int count = 0;
+        node temp = head;
+        while(temp.next != null) {
+            count++;
+            temp = temp.next; 
+        }
+        return count;
+    }
 
 }
