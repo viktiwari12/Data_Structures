@@ -21,12 +21,11 @@ public class linkedlist
         System.out.println("Enter the element you wish to insert at the first of linkedlist");
         int first = scn.nextInt();
         head = add_first(head, first);
-        print_linkedlist(head);
         System.out.println("Enter the element you wish to insert at the last of linkedlist");
         int last = scn.nextInt();
         add_last(head, last);
-        print_linkedlist(head);
-
+        remove_first(head);
+        remove_last(head);
     }
     // create a linkedlist
     public static node createlinkedlist(){
@@ -47,23 +46,43 @@ public class linkedlist
     // ptint the linked list 
     public static void print_linkedlist(node head){
         while(head != null){
-            System.out.println(head.data);
+            System.out.print(head.data + ",  ");
             head = head.next;
         }
+        System.out.println();
     }
     // add an element at the first of the linkedlist 
     public static node add_first(node head, int data){
         node first = new node(data);
         first.next = head;
         head = first;
+        print_linkedlist(head);
         return head;
     }
     // add an element at the LAST of the linkedlist 
     public static void add_last(node head, int data){
+        node temp = head;
         node last = new node(data);
         //node temp = head;
-        while(head.next != null) head = head.next;
-        head.next = last;
-        
+        while(temp.next != null) temp = temp.next;
+        temp.next = last;   
+        print_linkedlist(head);
+
     }
+    // remove an element at the first of the linkedlist 
+    public static node remove_first(node head){
+        head = head.next;
+        System.out.println("Updated linkedlist");
+        print_linkedlist(head);
+        return head;
+    }
+    //remove from last 
+    public static void remove_last(node head){
+        node temp = head;
+        while(temp.next.next != null) temp = temp.next;
+        temp.next = null; 
+        System.out.println("Updated linkedlist");  
+        print_linkedlist(head);
+    }
+
 }
