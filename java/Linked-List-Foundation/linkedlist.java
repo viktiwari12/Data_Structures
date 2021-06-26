@@ -23,7 +23,7 @@ public class linkedlist
         System.out.println("Enter the element you wish to insert at the last of linkedlist");
         int last = scn.nextInt();
         add_last(head, last);
-        System.out.println("Enter the element  you wish c to insert and the index of the linkedlist at whcichyou wish to enter");
+        System.out.println("Enter the element  you wish  to insert and the index of the linkedlist at whcichyou wish to enter");
         int data = scn.nextInt();
         int index = scn.nextInt();
         add_at_Index(head, data, index);
@@ -88,10 +88,10 @@ public class linkedlist
     // add an element at a particular index of the linkedlist 
     public static void add_at_Index(node head, int data, int index){
         node temp = head;
-        int count = 1;
+        int count = 0;
         node idx = new node(data);
         //node temp = head;
-        while(count < index -1){
+        while( count < index -1 ){
             temp = temp.next;
             count++;
         }
