@@ -15,7 +15,6 @@ public class linkedlist
     }
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
-        //int data = scn.nextInt();
         node head = createlinkedlist();
         print_linkedlist(head);
         System.out.println("Enter the element you wish to insert at the first of linkedlist");
@@ -24,6 +23,10 @@ public class linkedlist
         System.out.println("Enter the element you wish to insert at the last of linkedlist");
         int last = scn.nextInt();
         add_last(head, last);
+        System.out.println("Enter the element  you wish c to insert and the index of the linkedlist at whcichyou wish to enter");
+        int data = scn.nextInt();
+        int index = scn.nextInt();
+        add_at_Index(head, data, index);
         remove_first(head);
         remove_last(head);
     }
@@ -43,6 +46,17 @@ public class linkedlist
         return head;
 
     }
+    // size of linkedlsit 
+    public static int size(node head){
+        if(head == null) return 0;
+        int count = 0;
+        node temp = head;
+        while(temp.next != null) {
+            count++;
+            temp = temp.next; 
+        }
+        return count;
+    }
     // ptint the linked list 
     public static void print_linkedlist(node head){
         while(head != null){
@@ -56,6 +70,7 @@ public class linkedlist
         node first = new node(data);
         first.next = head;
         head = first;
+        System.out.println("Updated linkedlist");
         print_linkedlist(head);
         return head;
     }
@@ -65,10 +80,27 @@ public class linkedlist
         node last = new node(data);
         //node temp = head;
         while(temp.next != null) temp = temp.next;
-        temp.next = last;   
+        temp.next = last;
+        System.out.println("Updated linkedlist");   
         print_linkedlist(head);
 
     }
+    // add an element at a particular index of the linkedlist 
+    public static void add_at_Index(node head, int data, int index){
+        node temp = head;
+        int count = 1;
+        node idx = new node(data);
+        //node temp = head;
+        while(count < index -1){
+            temp = temp.next;
+            count++;
+        }
+        idx.next = temp.next;
+        temp.next = idx;
+        System.out.println("Updated linkedlist");  
+        print_linkedlist(head);
+    }
+
     // remove an element at the first of the linkedlist 
     public static node remove_first(node head){
         head = head.next;
@@ -84,16 +116,8 @@ public class linkedlist
         System.out.println("Updated linkedlist");  
         print_linkedlist(head);
     }
-    // size of linkedlsit 
-    public static int size(node head){
-        if(head == null) return 0;
-        int count = 0;
-        node temp = head;
-        while(temp.next != null) {
-            count++;
-            temp = temp.next; 
-        }
-        return count;
-    }
+    //
+    
+
 
 }
