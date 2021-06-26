@@ -16,7 +16,7 @@ public class linkedlist {
         node head = createlinkedlist();
         System.out.println("Enter the element you wish to insert at the first of linkedlist");
         int data = scn.nextInt();
-    
+        add_first(head, data);
     }
     // create a linkedlist
     public static node createlinkedlist(){
@@ -25,5 +25,12 @@ public class linkedlist {
         node head = new node(scn.nextInt()); 
         for(int i = 1; i<size; i++) head.next = new node(sc.nextInt);
         return head;
+
+    }
+    // add an element at the first of the linkedlist 
+    public static void add_first(node head, int data){
+        node first = new node(data);
+        first.next = head;
+        head.next = first;
     }
 }
