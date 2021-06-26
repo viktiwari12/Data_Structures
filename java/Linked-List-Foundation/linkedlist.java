@@ -33,4 +33,12 @@ public class linkedlist {
         first.next = head;
         head.next = first;
     }
+    // add an element at the LAST of the linkedlist 
+    public static void add_last(node head, int data){
+        node last = new node(data);
+        
+        while(head.next != null) head = head.next;
+        head.next = last;
+        
+    }
 }
