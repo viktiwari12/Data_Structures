@@ -36,13 +36,17 @@ public class class001 {
     }
     public static ArrayList<treenode> roottonode(treenode root,int data )
     {
+       //base case 
+        if(root == null){
+            ArrayList<Integer> temp = new ArrayList<>();
+            return temp;
+        }
         ArrayList<Integer> path = new ArrayList<>();
-        if(find(root, data) == true)
-        {
+        if(root.val == data) path.add(root.val);
+
             while(root.val != data) path.add(root.val);
             roottonode(root.left,data );
             roottonode(root.right, data); 
-        }
 
 
     }
