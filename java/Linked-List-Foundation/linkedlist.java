@@ -29,6 +29,9 @@ public class linkedlist
         add_at_Index(head, data, index);
         remove_first(head);
         remove_last(head);
+        System.out.println("Enter the index of the linkedlist at whcichyou wish to remove");
+        int indexr = scn.nextInt();
+        remove_at_Index(head,  indexr);
     }
     // create a linkedlist
     public static node createlinkedlist(){
@@ -116,7 +119,23 @@ public class linkedlist
         System.out.println("Updated linkedlist");  
         print_linkedlist(head);
     }
-    //
+     // Remove an element at a particular index of the linkedlist 
+     public static void remove_at_Index(node head, int index){
+        node curent = head;
+        node ahead  = curent.next;
+        int count = 0;
+        //node temp = head;
+        while( count < index -1 ){
+            curent = ahead;
+            ahead = ahead.next;
+            count++;
+
+        }
+        curent.next = ahead.next;
+        System.out.println("Updated linkedlist");  
+        print_linkedlist(head);
+    }
+
     
 
 
