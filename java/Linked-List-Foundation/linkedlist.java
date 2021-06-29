@@ -90,6 +90,14 @@ public class linkedlist
     }
     // add an element at a particular index of the linkedlist 
     public static void add_at_Index(node head, int data, int index){
+        if ( index == 0){
+            add_first(head, data);
+            return;
+        }
+        else if(index == size(head) -1){
+            add_last(head, data);
+            return;
+        }
         node temp = head;
         int count = 0;
         node idx = new node(data);
@@ -121,6 +129,14 @@ public class linkedlist
     }
      // Remove an element at a particular index of the linkedlist 
      public static void remove_at_Index(node head, int index){
+        if ( index == 0){
+            remove_first(head);
+            return;
+        }
+        else if(index == size(head) -1){
+            remove_last(head);
+            return;
+        }
         node curent = head;
         node ahead  = curent.next;
         int count = 0;
@@ -135,8 +151,4 @@ public class linkedlist
         System.out.println("Updated linkedlist");  
         print_linkedlist(head);
     }
-
-    
-
-
 }
