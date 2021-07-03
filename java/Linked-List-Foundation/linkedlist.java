@@ -32,6 +32,8 @@ public class linkedlist
         System.out.println("Enter the index of the linkedlist at whcichyou wish to remove");
         int indexr = scn.nextInt();
         remove_at_Index(head,  indexr);
+        System.out.println(" linkedlist with data reversed ");
+        reversedata(head);
     }
     // create a linkedlist
     public static node createlinkedlist(){
@@ -138,17 +140,40 @@ public class linkedlist
             return;
         }
         node curent = head;
-        node ahead  = curent.next;
+        //node ahead  = curent.next;
         int count = 0;
         //node temp = head;
         while( count < index -1 ){
-            curent = ahead;
-            ahead = ahead.next;
-            count++;
-
+            curent = curent.next;
+            count = count +1;
         }
-        curent.next = ahead.next;
+        curent.next = curent.next.next;
         System.out.println("Updated linkedlist");  
         print_linkedlist(head);
     }
+    // reverse the linked list ( Data reverse)
+    public static void reversedata(node head){
+        int sz = size(head);
+        if(sz == 0){
+            print_linkedlist(head);
+            return;
+        }
+        node temp = head;
+        // store all the data of linkedlist iin an array 
+        int arr[] = new int [sz];
+        for(int i = 0; i<sz; sz++){
+            arr[i] = temp.data;
+           temp =  temp.next;
+        }
+        // using the array store the data in linked list in reverse order
+        temp = head;
+        for(int j = sz -1; j>= 0; j--){
+            temp.data = arr[j];
+            temp = temp.next;
+        }
+        // now print the linkedlist
+        print_linkedlist(head);
+    }
+
 }
+
