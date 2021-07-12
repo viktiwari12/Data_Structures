@@ -21,20 +21,23 @@ public class constructor {
         public static void main(String[] args) {
             // the input data 
             int arr [] = {10, 20, 50, -1, 60, -1, -1, 30, 70, -1, -1, 40, 80, -1, 90, -1, -1, -1};
+
+            // declear a node that point to the root of the tree
+            node root;
             // take a stack 
             Stack<node> st = new Stack<>();
             for(int i = 0; i< arr.length; i++){
                 // if stack is empty then make the root 
-                if(st.empty()) st.push(new node(arr[i]));
+                if(st.empty()){
+                    root = new node(arr[i]);
+                    st.push(root);
+                } 
 
                 // if the no is -1 then pop the stack;
                 if(arr[i] == -1) st.pop();
 
                 //  now if the next no is not -1 then make a node and make it the children of the node present on the top of the stack 
-                node temp = st.peek();
-                ArrayList<node> ch = temp.children;
-                ch.add(new node(arr[i]));
-
+                st.peek().children.add(new node(arr[i]));
             }
     }
 }
