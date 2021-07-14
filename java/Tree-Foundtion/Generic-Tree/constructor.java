@@ -168,5 +168,45 @@ public class constructor {
             
         }
       }
+      // level order traversal of a generic tree in zig zag mode
+      public static void levelOrderLinewiseZZ(node root){
+        // write your code here
+        
+        // edge case 
+        if(root == null) return;
+        // take two stack: one for storing the root nodes and other for storing the child node of that root node 
+        Stack<node> ms = new Stack<>();
+        Stack<node> cs = new Stack<>();
+        
+        // add the root node in the main stack 
+        ms.add(root);
+        int level = 1;
+        while(ms.size() > 0 ){
+            // pop the main stack 
+            root = ms.pop();
+            // print it's data
+            System.out.print(root.data + " ");
+            // now if we are on even levvel
+            if(level % 2 == 0){
+                // push  the clilds of the root nodes in the child stack in right to left manner 
+                for(int i = root.children.size() - 1; i >= 0; i-- ){
+                    cs.push(root.children.get(i));
+                }
+            }else{
+                // push  the clilds of the root nodes in the child stack in left to right manner 
+                for(node child: root.children){
+                    cs.push(child);
+                }
+            }
+            // now check if stack is empty or not? if it's empty it means now data will be fronm next level; 
+            // so update the main satack and child stack and then increase the level 
+            if(ms.size() == 0 ){
+                ms = cs;
+                cs = new Stack<>();
+                System.out.println();
+                level++;
+            }
+        }
+      }
     
 }
