@@ -143,5 +143,30 @@ public class constructor {
          // print a full stop at the end 
         System.out.println(".");
     }
+    // levelorder traversal of a generic tree :-> line wise 
+    public static void levelOrderLinewise(node root){
+        // write your code here
+        // edge case 
+        if(root == null) return ;
+        // make two queue
+        Queue<node> q = new ArrayDeque<>();
+        Queue<node> cq = new ArrayDeque<>();
+        // add the root node in the queue
+        q.add(root);
+        while(q.size() > 0){
+            // remove the top of the queue
+            root = q.remove();
+            System.out.print(root.data + " ");
+            for(node child : root.children){
+                cq.add(child);
+            }
+            if( q.size() == 0 ){
+                q = cq;
+                cq =  new ArrayDeque<>();
+                System.out.println();
+            } 
+            
+        }
+      }
     
 }
