@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.*;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -42,6 +43,10 @@ public class constructor {
             }
             // display the tree
             display(root);
+            // print the size of the tree
+            System.out.println(size(root));
+            // print the maximum node of the tree
+            System.out.println(max(root));
     }
     // a function to display the tree
     public static void display(node root){
@@ -61,4 +66,58 @@ public class constructor {
             display(rc);
         }
     }
+    // a function to return the size of the generic tree
+    public static int size(node root){
+        if(root == null ) return 0;
+        // root node 
+        int sz = 1; 
+
+        // size will be size of the root node + size of the each child node 
+        for(node child : root.children){
+            sz += size(child);
+        }
+        return sz;
+    }
+    // a function to return the maximum node of the  of the generic tree
+    public static int max(node root){
+        if(root == null ) return 0;
+        // root node 
+        int ans = root.data; 
+
+        // size will be size of the root node + size of the each child node 
+        for(node child : root.children){
+            ans  = Math.max(ans, max(child));
+        }
+        return ans;
+    }
+    // a function to return the hight of the  of the generic tree
+    public static int height(node root) {
+        // write your code here
+        if(root == null ) return 0;
+        
+        int hgt = -1;
+        for (node child : root.children){
+            hgt = Math.max(height(child), hgt);
+        }
+        return ++hgt;
+      }
+      // pre and post order traversal of generic tree
+    public static void traversals(node root){
+        // write your code here
+        // edge case 
+        if(root == null )return ;
+        // node pre area
+        System.out.println("Node Pre " + root.data);
+        for(node child : root.children ){
+            // edge pre area  
+            System.out.println("Edge Pre " + root.data  + "--" + child.data);
+            // go to the next node 
+            traversals(child);
+            // edge post area
+            System.out.println("Edge Post " + root.data  + "--" + child.data);
+        }
+        // node post area
+        System.out.println("Node Post " + root.data);
+      }
+    
 }
