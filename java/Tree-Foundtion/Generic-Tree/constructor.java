@@ -119,5 +119,29 @@ public class constructor {
         // node post area
         System.out.println("Node Post " + root.data);
       }
+
+      // Level order traversal of generic tree
+      public static void levelOrder(node root){
+        // write your code here
+        // edge case 
+        if(root == null ) return;
+        // make a queue 
+        Queue<node> q = new ArrayDeque<>();
+        // add the root in the queue
+        q.add(root);
+        // till the queue is not empty
+        while(q.size() > 0){
+            // remove the top of the queue
+            root = q.remove();
+            // print it's data
+            System.out.print(root.data + " ");
+            // now add all it's child to the end of the queue 
+            for(node child : root.children){
+                q.add(child);
+            }
+        }
+         // print a full stop at the end 
+        System.out.println(".");
+    }
     
 }
