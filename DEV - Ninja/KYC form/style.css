@@ -1,0 +1,44 @@
+.box{
+    
+}
+#Box_A{
+    display: flex;
+    
+}
+#picbox{
+    height: 5cm;
+    width: 5cm;
+}
+.head-div{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+#thrd-div{
+    display: flex;
+    justify-content: space-around;
+
+}
+h2{
+    background-color: darkgrey;
+}
+.heading{
+    background-color: darkgrey;
+    display: block;
+}
+#last-div{
+    display: flex;
+    justify-content: space-around;
+
+}
+.midv .rdiv{
+    text-shadow: 1px;
+    width: 120%;
+}
+body{
+    border-color: darkgray;
+    border-style: solid;
+    border-width: 25px 15px 15px 5px;;
+    
+}
+

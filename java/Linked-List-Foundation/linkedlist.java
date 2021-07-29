@@ -139,7 +139,7 @@ public class linkedlist
             remove_last(head);
             return;
         }
-        node curent = head;
+        node curent = head; 
         //node ahead  = curent.next;
         int count = 0;
         //node temp = head;

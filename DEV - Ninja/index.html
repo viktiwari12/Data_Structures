@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bloging Page</title>
+</head>
+
+<body>
+    <!--Let's make a simple bloging page using HTML only -->
+    <!-- The page flow will be as follow -->
+    <!-- First Part-->
+        <!--Header -->
+        <h1>This is the heading of the paragrah </h1>
+            <!--Logo Website Link -->
+            <!--Header Image -->
+            For now we are ignoring the image part
+    <!--Main Part Blog Heading --> 
+        <!--Blog Image-->
+        <!-- Content -->
+        <!-- since the html doesn't read enter key, so to seperate any text in two lines we use br tag. 
+        unlike other tags it doesn't have a pair. -->
+        <br> <br> <br>  
+        Here is the content of the blog. It could be any text. 
+            <!-- Paragraph 1  
+                The texts written as a paragraph are enclosed as p tags 
+                The p tags seperates one paragraph from another paragraph-->
+            <p>This is the first paragraph </p>
+            <!-- Paragraph  -->
+            <p> This is another paragraph
+                <br>
+                Here we  want to use some extra space in between the texts  <!-- to do so we will use &nbsp --> &nbsp text with some extra space  
+                
+            </p>
+            <p> 
+                This is an another paragraph containing some lists- both ordered and unordered list. <br>  
+                Below are some unordered lists: 
+                <!-- To make unordered lists we use ul tag -->
+                <ul>This is an unordered list 
+                    <li>This is a list in unordered list </li>
+                    <li>This is another list in unordered list</li>
+                    <ul>This is an another unordered list in previous unordered list.
+                        <li>Further a list</li>
+                        <!-- One thing that has to be noticed here is if we put a li tag it's coming as a bullet points   -->
+                    </ul>
+                </ul>
+                <!-- One more thing that has to be noticed here lists are sometimes appearing  as a bullet points like sometime as a dark circle or sometime as a hallow circle
+                    what's an intresting fact here is we can manually decide how we want to present the lists by using "type attribute " 
+                    we will learn about this now  -->
+                <ul  type="square">This is a seperate unordered list
+                    <li >This is a list with square </li>
+                    <li>This is an additional list  </li>
+                    <li>This too is an additional list</li>
+                </ul>  
+                <!-- similar to unordered list we also have an ordered list  -->
+                <ol>This is an ordered list 
+                    <li>This is a list in unordered list </li>
+                    <li>This is another list in unordered list</li>
+                    <ol >This is an another unordered list in previous unordered list.
+                        <li>Further a list</li>
+                        
+                    </ol>
+                </ol>
+                <!-- One more thing that has to be noticed here lists are starting always with "1"
+                    what's an intresting fact here is we can manually decide how we want to present the lists by using "type attribute " 
+                    we will learn about this now  -->
+                <ol  type="a">This is a seperate unordered list 
+                    <li >This is a list with square </li>
+                    <li>This is an additional list  </li>
+                    <li>This too is an additional list</li>
+                </ol>  
+            </p>
+            </p>
+             <!-- List  -->
+        <!-- Ending paragraph -->
+</body>
+
+</html>
